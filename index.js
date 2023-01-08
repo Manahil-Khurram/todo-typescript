@@ -1,8 +1,10 @@
-import inquirer from 'inquirer';
-let todoList = [];
-let loop = true;
+"use strict";
+exports.__esModule = true;
+var inquirer_1 = require("inquirer");
+var todoList = [];
+var loop = true;
 while (loop) {
-    const answers = await inquirer.prompt([
+    var answers = await inquirer_1["default"].prompt([
         {
             type: 'input',
             name: 'TODO',
@@ -12,10 +14,10 @@ while (loop) {
             type: 'confirm',
             name: 'addmore',
             message: 'Do you want to add more todo? ',
-            default: false
+            "default": false
         }
     ]);
-    const { TODO, addmore } = answers;
+    var TODO = answers.TODO, addmore = answers.addmore;
     loop = addmore;
     if (TODO) {
         todoList.push(TODO);
@@ -26,7 +28,7 @@ while (loop) {
 }
 if (todoList.length > 0) {
     console.log("Your Todo List:");
-    todoList.map((eachItem) => {
+    todoList.map(function (eachItem) {
         console.log(eachItem);
     });
 }
